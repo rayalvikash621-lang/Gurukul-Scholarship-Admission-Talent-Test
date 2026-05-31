@@ -1,171 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gurukul Shikshan Sansthan, Dhankoli</title>
-<style>
-  body {
-    /* लाइट ब्राउन और येलो का मिक्स बैकग्राउंड */
-    background: linear-gradient(135deg, #d2a679, #fff2a8);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurukul Senior Secondary School</title>
+    <!-- Font Awesome for WhatsApp Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  /* वाटरमार्क (नए बैकग्राउंड के हिसाब से एडजस्ट किया गया) */
-  .watermark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 18vw;
-    color: rgba(139, 69, 19, 0.12); /* डार्क ब्राउन कम ओपेसिटी के साथ */
-    font-weight: 900;
-    white-space: nowrap;
-    z-index: -1;
-    pointer-events: none;
-    letter-spacing: 10px;
-  }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
 
-  /* ब्लैक और वायलेट मिक्स बॉक्स */
-  .card {
-    background: linear-gradient(135deg, #000000 30%, #5d00ff 100%);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    padding: 40px 30px;
-    text-align: center;
-    max-width: 450px;
-    width: 100%;
-    z-index: 1;
-  }
+        .container {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+        }
 
-  .logo-icon {
-    font-size: 60px;
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-  }
+        .school-name {
+            color: #1a237e;
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-  h1 {
-    background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 0;
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 1.3;
-    font-weight: 800;
-  }
+        .address {
+            color: #555;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
 
-  h2 {
-    color: #ffcc00;
-    font-size: 22px;
-    margin: 5px 0 20px;
-    font-weight: 700;
-  }
+        /* Base Button Style */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
 
-  .tagline {
-    font-size: 18px;
-    color: #e0e0e0;
-    margin-bottom: 30px;
-    font-weight: 600;
-  }
+        .btn:active {
+            transform: scale(0.95);
+        }
 
-  /* घूमती हुई रेनबो लाइन के लिए बटन रैपर */
-  .btn-wrapper {
-    position: relative;
-    margin: 20px 0;
-    padding: 4px; /* घूमती लाइन की मोटाई */
-    border-radius: 50px;
-    overflow: hidden;
-    display: block;
-  }
+        /* Button 1: Continuous Color Changing (Warm Colors) */
+        .btn-site {
+            background: linear-gradient(90deg, #ff416c, #ff4b2b, #f7b733, #ff416c);
+            background-size: 300%;
+            animation: changeColor1 4s infinite linear;
+        }
 
-  .btn-wrapper::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000
-    );
-    animation: spin-rainbow 3s linear infinite;
-    z-index: 0;
-  }
+        @keyframes changeColor1 {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-  @keyframes spin-rainbow {
-    100% { transform: rotate(360deg); }
-  }
+        /* Button 2: Continuous Color Changing (Cool Colors - Different timing) */
+        .btn-result {
+            background: linear-gradient(90deg, #00c6ff, #0072ff, #1d976c, #00c6ff);
+            background-size: 300%;
+            animation: changeColor2 6s infinite ease-in-out reverse;
+        }
 
-  .btn {
-    position: relative;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 16px 20px;
-    background: #0f0518;
-    color: #ffffff;
-    border-radius: 46px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 1;
-    transition: all 0.3s ease;
-  }
+        @keyframes changeColor2 {
+            0% { background-position: 100% 50%; }
+            50% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
 
-  .btn:hover {
-    background: #1a0b2e;
-    color: #ffcc00;
-  }
+        /* Button 3: Contact Us (Distinct Design) */
+        .btn-contact {
+            background-color: #333;
+            color: #fff;
+            margin-top: 35px;
+            border: 2px solid #333;
+            box-shadow: none;
+        }
 
-  .footer-note {
-    margin-top: 30px;
-    font-size: 16px;
-    color: #bfa3d9;
-    font-weight: 600;
-  }
+        .btn-contact:hover {
+            background-color: #fff;
+            color: #333;
+        }
 
-  a {
-    -webkit-tap-highlight-color: transparent;
-  }
-</style>
+        /* Hidden Contact Box */
+        .contact-box {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #c8e6c9;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wa-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .wa-link:active {
+            background-color: #128C7E;
+        }
+        
+        .wa-link i {
+            font-size: 22px;
+        }
+
+    </style>
 </head>
 <body>
 
-  <div class="watermark">GURUKUL</div>
+    <div class="container">
+        <h1 class="school-name">Gurukul Senior Secondary School</h1>
+        <p class="address">Bhadasar Road Dhankoli
+        341516</p>
 
-  <div class="card">
-    <div class="logo-icon">🏫</div>
-    <h1>Gurukul Shikshan Sansthan</h1>
-    <h2>Dhankoli</h2>
-    
-    <div class="tagline">"उत्कृष्ट शिक्षा, उज्ज्वल भविष्य"</div>
-    
-    <div class="btn-wrapper">
-      <a href="https://Gsssdhankoli.github.io" class="btn">
-        🌐 More Information 
-      </a>
+        <!-- Button 1: Visit Site -->
+        <a href="https://gsssdhankoli.github.io" class="btn btn-site">
+            Visit Our Site
+        </a>
+
+        <!-- Button 2: Check Result -->
+        <a href="https://script.google.com/macros/s/AKfycbzEWMyjE3GVZkG1pFtmyoHhkfwoTQq-R5j2epDYC01Vdy-uMp8Y2R2TJlzxKDzqeMST1w/exec" class="btn btn-result">
+            Check G-SAT Result
+        </a>
+
+        <!-- Button 3: Contact Us -->
+        <button class="btn btn-contact" onclick="toggleContact()">
+            Contact Us
+        </button>
+
+        <!-- Hidden Contact Numbers (WhatsApp) -->
+        <!-- Note: +91 is added automatically in the link so it directly opens Indian WhatsApp numbers -->
+        <div class="contact-box" id="whatsapp-box">
+            <a href="https://wa.me/919772564359" target="_blank" class="wa-link">
+                <i class="fa-brands fa-whatsapp"></i> 9772564359
+            </a>
+            <a href="https://wa.me/919887071127" target="_blank" class="wa-link">
+                <i class="fa-brands fa-whatsapp"></i> 9887071127
+            </a>
+        </div>
     </div>
-    
-    <div class="btn-wrapper">
-      <a href="https://harmonious-ganache-a83c81.netlify.app/" class="btn">
-        🎓 Register Now
-      </a>
-    </div>
-    
-    <div class="footer-note">Contact us for a better future</div>
-  </div>
+
+    <script>
+        function toggleContact() {
+            var box = document.getElementById("whatsapp-box");
+            if (box.style.display === "flex") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "flex";
+            }
+        }
+    </script>
 
 </body>
 </html>
